@@ -1,0 +1,6 @@
+.SearchListItem {
+  padding: 0.5rem 1rem;
+  font-size: 2rem;
+  border: 1px solid black;
+  width: 100%;
+}

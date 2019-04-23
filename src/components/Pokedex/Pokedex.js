@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import axios from 'axios';
-
 import SearchBar from '../SearchBar/SearchBar';
 import SearchList from '../SearchList/SearchList';
+import classes from './Pokedex.module.css';
 
 class Pokedex extends Component {
   state = {
@@ -37,7 +37,7 @@ class Pokedex extends Component {
       pokemonArray = this.filterMatches();
     }
     return (
-      <div>
+      <div className={classes.Pokedex}>
         <SearchBar 
           handleInput={this.searchInputHandler} 
           search={this.searchByName}/>

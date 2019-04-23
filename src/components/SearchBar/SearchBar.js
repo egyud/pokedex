@@ -1,8 +1,9 @@
 import React from 'react';
+import classes from './SearchBar.module.css';
 
 const SearchBar = (props) => (
-  <form onSubmit={props.search}>
-    <input onChange={props.handleInput} type="text" placeholder="Search..."/>
+  <form className={classes.SearchBarForm} onSubmit={props.search}>
+    <input className={classes.SearchBar} onChange={props.handleInput} type="text" placeholder="Search..."/>
   </form>
 )
 
