@@ -8,8 +8,11 @@ const SearchList = ({pokemon}) => (
         {pokemon.map(poke => {
           poke.name = poke.name.charAt(0).toUpperCase() + poke.name.slice(1);
           return (
-            <Link to={"/details" + poke.name}>
-                <SearchListItem key={Math.random()}>{poke.name}</SearchListItem>  
+            <Link 
+                key={poke.name + Math.random()} 
+                to={`/details/${poke.name}`}
+                id={poke.name} >
+                <SearchListItem>{poke.name}</SearchListItem>  
             </Link>
           )
         })}

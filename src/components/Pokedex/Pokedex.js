@@ -2,12 +2,14 @@ import React, { Component } from 'react';
 import { Route, BrowserRouter } from 'react-router-dom';
 import axios from 'axios';
 import SearchPage from '../SearchPage/SearchPage';
+import DetailPage from '../Details/DetailPage';
 import classes from './Pokedex.module.css';
 
 class Pokedex extends Component {
   state = {
     searchInput: '',
-    pokemonList: []
+    pokemonList: [],
+    selectedPokemon: ''
   }
 
   componentDidMount() {
@@ -31,6 +33,13 @@ class Pokedex extends Component {
     })
   }
 
+  selectPokemonHandler = (e) => {
+    e.persist();
+    e.preventDefault();
+    console.log('clicked')
+    console.log(e.target.id)
+  }
+
   render() {
     let pokemonArray = [];
     if (this.state.searchInput.length > 0) {
@@ -40,11 +49,13 @@ class Pokedex extends Component {
       <BrowserRouter>
         <div className={classes.Pokedex}>
           <Route 
-            path="/" 
+            path="/" exact
             render={() => <SearchPage 
               input={this.searchInputHandler}
               search={this.searchByName}
-              pokemon={pokemonArray}/>}></Route>
+              pokemon={pokemonArray}/>}
+              click={this.selectPokemonHandler}></Route>
+          <Route path="/details/:name" render={(props) => <DetailPage {...props}/>}></Route>
         </div>
       </BrowserRouter>
     )
