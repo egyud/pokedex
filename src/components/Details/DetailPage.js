@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import axios from 'axios';
+import DetailsTable from './DetailsTable/DetailsTable';
 
 
 class DetailPage extends Component {
@@ -32,42 +33,7 @@ class DetailPage extends Component {
               return <span>{type.type.name}</span>
             })}
           </div>
-          <table>
-            <tbody>
-              <tr>
-                <td>HP</td>
-                <td>{poke.stats[5].base_stat}</td>
-              </tr>
-              <tr>
-                <td>Attack</td>
-                <td>{poke.stats[4].base_stat}</td>
-              </tr>
-              <tr>
-                <td>Defense</td>
-                <td>{poke.stats[3].base_stat}</td>
-              </tr>
-              <tr>
-                <td>Speed</td>
-                <td>{poke.stats[0].base_stat}</td>
-              </tr>
-              <tr>
-                <td>Special Attack</td>
-                <td>{poke.stats[2].base_stat}</td>
-              </tr>
-              <tr>
-                <td>Special Defense</td>
-                <td>{poke.stats[1].base_stat}</td>
-              </tr>
-              <tr>
-                <td>Height</td>
-                <td>{poke.height}</td>
-              </tr>
-              <tr>
-                <td>Weight</td>
-                <td>{poke.weight}</td>
-              </tr>
-            </tbody>
-          </table>
+          <DetailsTable pokeData={poke}/>
         </>
     }
     return (
