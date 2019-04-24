@@ -1,8 +1,9 @@
 import React from 'react';
+import Table from 'react-bootstrap/Table';
 import classes from './DetailsTable.module.css';
 
 const DetailsTable = ({pokeData}) => (
-  <table className={classes.DetailsTable}>
+  <Table striped bordered hover size="sm">
     <tbody>
       <tr>
         <td className={classes.Category}>HP</td>
@@ -37,7 +38,7 @@ const DetailsTable = ({pokeData}) => (
         <td>{pokeData.weight}</td>
       </tr>
     </tbody>
-  </table>
+  </Table>
 )
 
 export default DetailsTable;
