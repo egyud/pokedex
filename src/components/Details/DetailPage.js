@@ -26,6 +26,7 @@ class DetailPage extends Component {
     if (this.state.data.stats !== undefined) {
       table = 
         <>
+          <img src={poke.sprites.front_default}/>
           <div>
             {poke.types.map(type => {
               return <span>{type.type.name}</span>
