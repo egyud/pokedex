@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
+import { Route, BrowserRouter } from 'react-router-dom';
 import axios from 'axios';
-import SearchBar from '../SearchBar/SearchBar';
-import SearchList from '../SearchList/SearchList';
+import SearchPage from '../SearchPage/SearchPage';
 import classes from './Pokedex.module.css';
 
 class Pokedex extends Component {
@@ -37,13 +37,16 @@ class Pokedex extends Component {
       pokemonArray = this.filterMatches();
     }
     return (
-      <div className={classes.Pokedex}>
-        <SearchBar 
-          handleInput={this.searchInputHandler} 
-          search={this.searchByName}/>
-        <SearchList 
-          pokemon={pokemonArray}/>
-      </div>
+      <BrowserRouter>
+        <div className={classes.Pokedex}>
+          <Route 
+            path="/" 
+            render={() => <SearchPage 
+              input={this.searchInputHandler}
+              search={this.searchByName}
+              pokemon={pokemonArray}/>}></Route>
+        </div>
+      </BrowserRouter>
     )
   }
 
