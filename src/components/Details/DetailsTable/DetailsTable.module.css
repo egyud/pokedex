@@ -1,0 +1,13 @@
+.DetailsTable {
+  border: 1px solid black;
+  margin: 0 auto;
+  width: 60%;
+}
+
+.Category {
+  font-weight: bold;
+}
+
+td {
+  padding: 0.4rem 0;
+}
