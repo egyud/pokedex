@@ -1,6 +1,9 @@
 import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
+import Button from 'react-bootstrap/Button';
 import axios from 'axios';
 import DetailsTable from './DetailsTable/DetailsTable';
+import classes from './DetailPage.module.css';
 
 
 class DetailPage extends Component {
@@ -37,13 +40,16 @@ class DetailPage extends Component {
         </>
     }
     return (
-      <>
-        <h1>{this.state.pokemon}</h1>
-        <div>
-          
+      <div className={classes.DetailPage}>
+        <div className={classes.HeaderWrapper}>
+          <Link to="/" className={classes.BackBtn}>
+            <Button variant="outline-primary">&#8592; Back</Button>
+          </Link>
+          <h1>{this.state.pokemon}</h1>
         </div>
+
         {table}
-      </>
+      </div>
     )
   }
 }

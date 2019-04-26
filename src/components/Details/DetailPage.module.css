@@ -1,0 +1,14 @@
+.DetailPage {
+  width: 60%;
+  margin: 0 auto;
+}
+
+.BackBtn {
+  align-self: start;
+  position: absolute;
+}
+
+.HeaderWrapper {
+  display: flex;
+  flex-flow: column;
+}
