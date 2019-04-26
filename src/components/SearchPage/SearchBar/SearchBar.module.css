@@ -1,0 +1,8 @@
+.SearchBarForm, .SearchBar {
+  width: 100%;
+  margin-bottom: 0;
+}
+
+.SearchBar {
+  text-align: center;
+}

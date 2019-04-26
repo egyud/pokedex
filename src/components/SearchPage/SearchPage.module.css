@@ -1,0 +1,10 @@
+.SearchPage {
+  width: 60%;
+  margin: 0 auto;
+}
+
+@media(max-width: 500px) {
+  .SearchPage {
+    width: 100%;
+  }
+}
