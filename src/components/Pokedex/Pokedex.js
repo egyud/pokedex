@@ -9,7 +9,9 @@ class Pokedex extends Component {
   state = {
     searchInput: '',
     pokemonList: [],
-    selectedPokemon: ''
+    selectedPokemon: '',
+    currentPage: 1,
+    pokemonPerPage: 15
   }
 
   componentDidMount() {
@@ -33,17 +35,36 @@ class Pokedex extends Component {
     })
   }
 
-  selectPokemonHandler = (e) => {
+  prevPageHandler = (e) => {
     e.persist();
     e.preventDefault();
-    console.log('clicked')
-    console.log(e.target.id)
+    if (this.state.currentPage === 1) return;
+    this.setState(prevState => ({
+      currentPage: prevState.currentPage - 1
+    }))
+    console.log('prev clicked')
+  }
+
+  nextPageHandler = (e) => {
+    e.persist();
+    e.preventDefault();
+    this.setState(prevState => ({
+      currentPage: prevState.currentPage + 1
+    }))
+    console.log('next clicked')
   }
 
   render() {
+    const { currentPage, pokemonPerPage, pokemonList } = this.state;
+    const indexOfLastPoke = currentPage * pokemonPerPage;
+    const indexOfFirstPoke = indexOfLastPoke - pokemonPerPage;
+    const currentPokemonList = pokemonList.slice(indexOfFirstPoke, indexOfLastPoke);
+
     let pokemonArray = [];
     if (this.state.searchInput.length > 0) {
       pokemonArray = this.filterMatches();
+    } else {
+      pokemonArray = currentPokemonList;
     }
     return (
       <BrowserRouter>
@@ -53,8 +74,11 @@ class Pokedex extends Component {
             render={() => <SearchPage 
               input={this.searchInputHandler}
               search={this.searchByName}
-              pokemon={pokemonArray}/>}
-              click={this.selectPokemonHandler}></Route>
+              pokemon={pokemonArray}
+              next={this.nextPageHandler}
+              prev={this.prevPageHandler}
+              />}
+              ></Route>
           <Route path="/details/:name" render={(props) => <DetailPage {...props}/>}></Route>
         </div>
       </BrowserRouter>

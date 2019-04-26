@@ -8,6 +8,8 @@ const SearchPage = (props) => (
     <SearchBar 
       handleInput={props.input} 
       search={props.search}/>
+    <button onClick={props.prev}>Prev</button>
+    <button onClick={props.next}>Next</button>
     <SearchList 
       pokemon={props.pokemon}
     />
