@@ -8,5 +8,11 @@
   box-sizing: border-box;
   background-color: white;
   overflow: scroll;
-  z-index: 1;
+}
+
+@media(max-width: 595px) {
+  .Pokedex {
+    width: 100%;
+    border: none;
+  }
 }
