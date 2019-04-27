@@ -5,10 +5,19 @@
 
 .BackBtn {
   align-self: start;
-  position: absolute;
+  /* position: absolute; */
+  margin-bottom: 1rem;
 }
 
 .HeaderWrapper {
   display: flex;
   flex-flow: column;
+  margin-top: 2rem;
+}
+
+.TypeWrapper {
+  display: flex;
+  flex-flow: row;
+  justify-content: space-around;
+  margin: 0.7rem;
 }
