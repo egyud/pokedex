@@ -54,9 +54,13 @@ class Pokedex extends Component {
   nextPageHandler = (e) => {
     e.persist();
     e.preventDefault();
-    this.setState(prevState => ({
-      currentPage: prevState.currentPage + 1
-    }))
+    if (!this.state.displayIndex) {
+      this.setState(prevState => ({
+        currentPage: prevState.currentPage + 1
+      }))
+    } else {
+      this.setState({displayIndex: false})
+    }
   }
 
   hideIndexHandler = (e) => {
