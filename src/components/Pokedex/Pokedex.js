@@ -26,7 +26,10 @@ class Pokedex extends Component {
   searchInputHandler = (e) => {
     e.persist();
     e.preventDefault();
-    this.setState({searchInput: e.target.value})
+    this.setState({
+      searchInput: e.target.value,
+      displayIndex: false
+    })
   }
 
   filterMatches() {
@@ -72,6 +75,10 @@ class Pokedex extends Component {
       pokemonArray = currentPokemonList;
     }
 
+    let noResults;
+    if (searchInput.length > 0 && pokemonArray.length === 0 && !displayIndex) noResults = true;
+    else noResults = false;
+
     return (
       <BrowserRouter>
         <div className={classes.Pokedex}>
@@ -85,6 +92,7 @@ class Pokedex extends Component {
               prev={this.prevPageHandler}
               index={displayIndex}
               fullList={this.hideIndexHandler}
+              noResults={noResults}
               />}
               ></Route>
           <Route path="/details/:name" render={(props) => <DetailPage {...props}/>}></Route>

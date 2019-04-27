@@ -2,6 +2,7 @@ import React from 'react';
 import SearchBar from './SearchBar/SearchBar';
 import SearchList from './SearchList/SearchList';
 import Index from '../Index/Index';
+import NoResultsMsg from '../SearchPage/NoResultsMsg/NoResultsMsg';
 import classes from './SearchPage.module.css';
 
 const SearchPage = (props) => {
@@ -9,6 +10,8 @@ const SearchPage = (props) => {
 
   if (props.index) {
     content = <Index fullList={props.fullList}/>
+  } else if (props.noResults) {
+    content = <NoResultsMsg />
   } else {
     content = <SearchList pokemon={props.pokemon}/>
   }
