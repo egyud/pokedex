@@ -45,7 +45,7 @@ class DetailPage extends Component {
           <Link to="/" className={classes.BackBtn}>
             <Button variant="outline-primary">&#8592; Back</Button>
           </Link>
-          <h1>{this.state.pokemon}</h1>
+          <h1>{this.props.match.params.name}</h1>
         </div>
 
         {table}
