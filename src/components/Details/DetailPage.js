@@ -31,6 +31,7 @@ class DetailPage extends Component {
       table = 
         <>
           <img src={poke.sprites.front_default}/>
+          <h5>Type</h5>
           <div className={classes.TypeWrapper}>
             {poke.types.map(type => {
               return <span>{type.type.name}</span>
